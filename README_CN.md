@@ -1,6 +1,8 @@
 ﻿# GASDocumentation
 My understanding of Unreal Engine 4's GameplayAbilitySystem plugin (GAS) with a simple multiplayer sample project. This is not official documentation and neither this project nor myself are affiliated with Epic Games. I make no guarantee for the accuracy of this information.
 
+结合一个简单的多人（multiplayer）示例程序，阐述对UE4引擎插件GAS（GameplayAbilitySystem）的理解。
+
 The goal of this documentation is to explain the major concepts and classes in GAS and provide some additional commentary based on my experience with it. There is a lot of 'tribal knowledge' of GAS among users in the community and I aim to share all of mine here.
 
 The Sample Project and documentation are current with **Unreal Engine 4.27**. There are branches of this documentation for older versions of Unreal Engine, but they are no longer supported and are liable to have bugs or out of date information.
