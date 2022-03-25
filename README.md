@@ -1,4 +1,4 @@
-﻿# GASDocumentation
+# GASDocumentation
 My understanding of Unreal Engine 4's GameplayAbilitySystem plugin (GAS) with a simple multiplayer sample project. This is not official documentation and neither this project nor myself are affiliated with Epic Games. I make no guarantee for the accuracy of this information.
 
 结合一个简单的多人（multiplayer）示例程序，阐述对UE4引擎插件GAS（GameplayAbilitySystem）的理解。
@@ -15,7 +15,7 @@ The Sample Project and documentation are current with **Unreal Engine 4.27**. Th
 
 [GASShooter](https://github.com/tranek/GASShooter) is a sister Sample Project demonstrating advanced techniques with GAS for a multiplayer FPS/TPS.
 
-[GASShooter](https://github.com/tranek/GASShooter) 是一个简单的示范性质的姐妹工程（伴随文档），他展示了在多人FPS、TPS游戏中GAS先进的技术。
+[GASShooter](https://github.com/tranek/GASShooter) 是一个简单的示范性质的姐妹工程（伴随文档），它展示了在多人FPS、TPS游戏中GAS先进的技术。
 
 The best documentation will always be the plugin source code.
 
