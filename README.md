@@ -1,23 +1,21 @@
 # GASDocumentation
 My understanding of Unreal Engine 4's GameplayAbilitySystem plugin (GAS) with a simple multiplayer sample project. This is not official documentation and neither this project nor myself are affiliated with Epic Games. I make no guarantee for the accuracy of this information.
 
-结合一个简单的多人（multiplayer）示例程序，阐述对UE4引擎插件GAS（GameplayAbilitySystem）的理解。
-
-这不是官方文档，而且工程和我自己也不是来自于Epic Games。并不保证所有理解都是精准的。
-
 The goal of this documentation is to explain the major concepts and classes in GAS and provide some additional commentary based on my experience with it. There is a lot of 'tribal knowledge' of GAS among users in the community and I aim to share all of mine here.
-
-该文档希望可以解释一些主要概念和c++类，还提供一些基于我（是原作者，不是中文译者）的经验给予的一些注解说明。包括和其他使用者交流中获得的大家的个人理解（tribal knowledge）。我希望能够分享大家的知识经验。
 
 The Sample Project and documentation are current with **Unreal Engine 4.27**. There are branches of this documentation for older versions of Unreal Engine, but they are no longer supported and are liable to have bugs or out of date information.
 
-示例程序和文档对应现在的UE4.27版本。这里也包含其他UE版本的文档分支，不过它们不再受更新支持，也可能存在错误或过时的信息。
-
 [GASShooter](https://github.com/tranek/GASShooter) is a sister Sample Project demonstrating advanced techniques with GAS for a multiplayer FPS/TPS.
 
-[GASShooter](https://github.com/tranek/GASShooter) 是一个简单的示范性质的姐妹工程（伴随文档），它展示了在多人FPS、TPS游戏中GAS先进的技术。
-
 The best documentation will always be the plugin source code.
+
+结合一个简单的多人（multiplayer）示例程序，阐述对UE4引擎插件GAS（GameplayAbilitySystem）的理解。这不是官方文档，而且工程和我自己也不是来自于Epic Games。并不保证所有理解都是精准的。
+
+该文档希望可以解释一些主要概念和c++类，还提供一些基于我（是原作者，不是中文译者）的经验给予的一些注解说明。包括和其他使用者交流中获得的大家的个人理解（tribal knowledge）。我希望能够分享大家的知识经验。
+
+示例程序和文档对应现在的UE4.27版本。这里也包含其他UE版本的文档分支，不过它们不再受更新支持，也可能存在错误或过时的信息。
+
+[GASShooter](https://github.com/tranek/GASShooter) 是一个简单的示范性质的姐妹工程（伴随文档），它展示了在多人FPS、TPS游戏中GAS先进的技术。
 
 最好的文档是插件（GAS）源码本身。
 
@@ -180,6 +178,9 @@ The best documentation will always be the plugin source code.
 ## 1. Intro to the GameplayAbilitySystem Plugin
 From the [Official Documentation](https://docs.unrealengine.com/en-US/Gameplay/GameplayAbilitySystem/index.html):
 >The Gameplay Ability System is a highly-flexible framework for building abilities and attributes of the type you might find in an RPG or MOBA title. You can build actions or passive abilities for the characters in your games to use, status effects that can build up or wear down various attributes as a result of these actions, implement "cooldown" timers or resource costs to regulate the usage of these actions, change the level of the ability and its effects at each level, activate particle or sound effects, and more. Put simply, this system can help you to design, implement, and efficiently network in-game abilities as simple as jumping or as complex as your favorite character's ability set in any modern RPG or MOBA title.
+
+>GAS（The Gameplay Ability System，以下简称GAS）是一个高度灵活的框架，用于构建RPG或MOBA等游戏中可能包含的能力（逻辑）和属性。 你可以建立在游戏中用到的主动或被动的行为能力（abilities）, status effects that can build up or wear down various attributes as a result of these actions, implement "cooldown" timers or resource costs to regulate the usage of these actions, change the level of the ability and its effects at each level, activate particle or sound effects, and more. Put simply, this system can help you to design, implement, and efficiently network in-game abilities as simple as jumping or as complex as your favorite character's ability set in any modern RPG or MOBA title.
+
 
 The GameplayAbilitySystem plugin is developed by Epic Games and comes with Unreal Engine 4 (UE4). It has been battle tested in AAA commercial games such as Paragon and Fortnite among others.
 
