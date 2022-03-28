@@ -177,14 +177,12 @@ The best documentation will always be the plugin source code.
 <a name="intro"></a>
 ## 1. Intro to the GameplayAbilitySystem Plugin
 From the [Official Documentation](https://docs.unrealengine.com/en-US/Gameplay/GameplayAbilitySystem/index.html):
->The Gameplay Ability System is a highly-flexible framework for building abilities and attributes of the type you might find in an RPG or MOBA title. You can build actions or passive abilities for the characters in your games to use, status effects that can build up or wear down various attributes as a result of these actions, implement "cooldown" timers or resource costs to regulate the usage of these actions, change the level of the ability and its effects at each level, activate particle or sound effects, and more. Put simply, this system can help you to design, implement, and efficiently network in-game abilities as simple as jumping or as complex as your favorite character's ability set in any modern RPG or MOBA title.
 
->GAS（The Gameplay Ability System，以下简称GAS）是一个高度灵活的框架，用于构建RPG或MOBA等游戏中可能包含的能力（逻辑）和属性。 你可以建立在游戏中用到的主动或被动的行为能力（abilities）, status effects that can build up or wear down various attributes as a result of these actions, implement "cooldown" timers or resource costs to regulate the usage of these actions, change the level of the ability and its effects at each level, activate particle or sound effects, and more. Put simply, this system can help you to design, implement, and efficiently network in-game abilities as simple as jumping or as complex as your favorite character's ability set in any modern RPG or MOBA title.
+>GAS（The Gameplay Ability System，以下简称GAS）是一个高度灵活的框架，用于构建RPG或MOBA等游戏中可能包含的能力（逻辑）和属性。 你可以建立在游戏中用到的主动或被动的行为能力（abilities）, 以及某些可以构建和消逝的状态效果，并且这些效果可以作为某种能力执行之后的结果来影响各种各样的属性，执行CD计时或者某种关联资源的消耗，每次升级时改变技能等级和他们的效果等级，激活相应的粒子或声音效果，以及其他内容。简单说的话，无论从简单的跳跃，还是到复杂的哪些有你喜欢的角色的RPG或MOBA类游戏，这套系统都可以帮助你设计实现他们，把那些游戏内在技能内容组合成高效的（逻辑）网络。
 
+GAS插件由EPIC公司开发，包含在UE4引擎中，并且在帕拉贡和堡垒之夜这种3A级大作中经受了实践的考验。
 
-The GameplayAbilitySystem plugin is developed by Epic Games and comes with Unreal Engine 4 (UE4). It has been battle tested in AAA commercial games such as Paragon and Fortnite among others.
-
-The plugin provides an out-of-the-box solution in single and multiplayer games for:
+GAS为单人和多人游戏提供了一整套解决方案，其中包括:
 * Implementing level-based character abilities or skills with optional costs and cooldowns ([GameplayAbilities](#concepts-ga))
 * Manipulating numerical `Attributes` belonging to actors ([Attributes](#concepts-a))
 * Applying status effects to actors ([GameplayEffects](#concepts-ge))
