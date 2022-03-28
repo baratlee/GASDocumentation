@@ -183,6 +183,7 @@ From the [Official Documentation](https://docs.unrealengine.com/en-US/Gameplay/G
 GAS插件由EPIC公司开发，包含在UE4引擎中，并且在帕拉贡和堡垒之夜这种3A级大作中经受了实践的考验。
 
 GAS为单人和多人游戏提供了一整套解决方案，其中包括:
+
 * Implementing level-based character abilities or skills with optional costs and cooldowns ([GameplayAbilities](#concepts-ga))
 * Manipulating numerical `Attributes` belonging to actors ([Attributes](#concepts-a))
 * Applying status effects to actors ([GameplayEffects](#concepts-ge))
@@ -191,6 +192,7 @@ GAS为单人和多人游戏提供了一整套解决方案，其中包括:
 * Replication of everything mentioned above
 
 In multiplayer games, GAS provides support for [client-side prediction](#concepts-p) of:
+
 * Ability activation
 * Playing animation montages
 * Changes to `Attributes`
