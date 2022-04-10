@@ -809,13 +809,15 @@ Your custom `AggregatorEvaluateMetaData` for qualifiers should be added to `FAgg
 
 <a name="concepts-ge-definition"></a>
 #### 4.5.1 Gameplay Effect Definition
-[`GameplayEffects`](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/UGameplayEffect/index.html) (`GE`) are the vessels through which abilities change [`Attributes`](#concepts-a) and [`GameplayTags`](#concepts-gt) on themselves and others. They can cause immediate `Attribute` changes like damage or healing or apply long term status buff/debuffs like a movespeed boost or stunning. The `UGameplayEffect` class is a meant to be a **data-only** class that defines a single gameplay effect. No additional logic should be added to `GameplayEffects`. Typically designers will create many Blueprint child classes of `UGameplayEffect`.
 
-`GameplayEffects` change `Attributes` through [`Modifiers`](#concepts-ge-mods) and [`Executions` (`GameplayEffectExecutionCalculation`)](#concepts-ge-ec).
+[`GameplayEffects`](https://docs.unrealengine.com/en-US/API/Plugins/GameplayAbilities/UGameplayEffect/index.html) (`GE`) 是联系[`Attributes`](#concepts-a)和[`GameplayTags`](#concepts-gt)的纽带，包括他们改变自身或者其他目标。GE能够立即引发`Attribute`的改变，包括伤害、治疗、持续性buff/debuffs、加速冲刺、被击晕等。`UGameplayEffect`类一般是纯数据类，用来定义一个简单的gameplay effect，应该不会有附加逻辑在其中。典型的设计者一般会创建很多基于`UGameplayEffect`的蓝图子类。
 
-`GameplayEffects` have three types of duration: `Instant`, `Duration`, and `Infinite`.
+`GameplayEffects` 通过 [`Modifiers`](#concepts-ge-mods) 和 [`Executions` (`GameplayEffectExecutionCalculation`)](#concepts-ge-ec) 来修改 `Attributes` 。
 
-Additionally, `GameplayEffects` can add/execute [`GameplayCues`](#concepts-gc). An `Instant` `GameplayEffect` will call `Execute` on the `GameplayCue` `GameplayTags` whereas a `Duration` or `Infinite` `GameplayEffect` will call `Add` and `Remove` on the `GameplayCue` `GameplayTags`.
+从时间上`GameplayEffects`有三种生效类型 : 一次性立即生效 `Instant`, 持续有限周期 `Duration`, 以及不限时持续 `Infinite`。
+
+另外，`GameplayEffects` 还可以添加或激活 [`GameplayCues`](#concepts-gc). 一个立即生效`Instant`类型的`GameplayEffect`可以激活`GameplayCue` `GameplayTags`,持续型（`Duration` 、 `Infinite`）的`GameplayEffect` 可以 添加和删除 `GameplayCue` `GameplayTags`.
+
 
 | Duration Type | GameplayCue Event | When to use                                                                                                                                                                                                                                |
 | ------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
