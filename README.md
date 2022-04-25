@@ -327,7 +327,7 @@ Starting with 4.24, `PossessedBy()` now sets the owner of the `Pawn` to the new 
 
 <a name="concepts-asc-setup"></a>
 ### 4.1.2 Setup and Initialization
-`ASCs` are typically constructed in the `OwnerActor's` constructor and explicitly marked replicated. **This must be done in C++**.
+`ASCs` 按照典型的方式在`OwnerActor`（所在的Actor）的构造函数中被创建（构造），并且明确指定复制标志位Replicated。 **上述操作必须在C++代码中实现**。
 
 ```c++
 AGDPlayerState::AGDPlayerState()
@@ -340,6 +340,12 @@ AGDPlayerState::AGDPlayerState()
 ```
 
 The `ASC` needs to be initialized with its `OwnerActor` and `AvatarActor` on both the server and the client. You want to initialize after the `Pawn's` `Controller` has been set (after possession). Single player games only need to worry about the server path.
+
+For player controlled characters where the `ASC` lives on the `Pawn`, I typically initialize on the server in the `Pawn's` `PossessedBy()` function and initialize on the client in the `PlayerController's` `AcknowledgePossession()` function.
+
+TODO HERE
+
+`ASC` 需要在服务器和客户端的`OwnerActor`和`AvatarActor`都进行初始化。（译者疑问，一对儿OwnerActor和AvatarActor，是客户端只有AvatarActor，服务器只有OwnerActor吗？） You want to initialize after the `Pawn's` `Controller` has been set (after possession). Single player games only need to worry about the server path.
 
 For player controlled characters where the `ASC` lives on the `Pawn`, I typically initialize on the server in the `Pawn's` `PossessedBy()` function and initialize on the client in the `PlayerController's` `AcknowledgePossession()` function.
 
@@ -1057,6 +1063,16 @@ Designers can choose which abilities a `GameplayEffect` grants, what level to gr
 
 <a name="concepts-ge-tags"></a>
 #### 4.5.7 Gameplay Effect Tags
+`GameplayEffects` carry multiple [`GameplayTagContainers`](#concepts-gt). Designers will edit the `Added` and `Removed` `GameplayTagContainers` for each category and the result will show up in the `Combined` `GameplayTagContainer` on compilation. `Added` tags are new tags that this `GameplayEffect` adds that its parents did not previously have. `Removed` tags are tags that parent classes have but this subclass does not have.
+
+| Category                          | Description                                                                                                                                                                                                                                                                                                                                                                        |
+| --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Gameplay Effect Asset Tags        | Tags that the `GameplayEffect` has. They do not do any function on their own and serve only the purpose of describing the `GameplayEffect`.                                                                                                                                                                                                                                        |
+| Granted Tags                      | Tags that live on the `GameplayEffect` but are also given to the `ASC` that the `GameplayEffect` is applied to. They are removed from the `ASC` when the `GameplayEffect` is removed. This only works for `Duration` and `Infinite` `GameplayEffects`.                                                                                                                             |
+| Ongoing Tag Requirements          | Once applied, these tags determine whether the `GameplayEffect` is on or off. A `GameplayEffect` can be off and still be applied. If a `GameplayEffect` is off due to failing the Ongoing Tag Requirements, but the requirements are then met, the `GameplayEffect` will turn on again and reapply its modifiers. This only works for `Duration` and `Infinite` `GameplayEffects`. |
+| Application Tag Requirements      | Tags on the Target that determine if a `GameplayEffect` can be applied to the Target. If these requirements are not met, the `GameplayEffect` is not applied.                                                                                                                                                                                                                      |
+| Remove Gameplay Effects with Tags | `GameplayEffects` on the Target that have any of these tags in their `Asset Tags` or `Granted Tags` will be removed from the Target when this `GameplayEffect` is successfully applied.                                                                                                                                                                                            |
+
 `GameplayEffects` carry multiple [`GameplayTagContainers`](#concepts-gt). Designers will edit the `Added` and `Removed` `GameplayTagContainers` for each category and the result will show up in the `Combined` `GameplayTagContainer` on compilation. `Added` tags are new tags that this `GameplayEffect` adds that its parents did not previously have. `Removed` tags are tags that parent classes have but this subclass does not have.
 
 | Category                          | Description                                                                                                                                                                                                                                                                                                                                                                        |
